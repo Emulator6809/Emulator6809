@@ -49,6 +49,10 @@
             border-radius: 5px;
             font-weight: bold;
             margin: 10px;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #d33426;
         }
         .contact {
             background: #34a853;
@@ -85,15 +89,23 @@
     <div class="pricing" id="download">
         <h2>Téléchargement</h2>
         <p>Cliquez ci-dessous pour télécharger la version gratuite :</p>
-        <a href="download/Emulator 6809 V1.5.msi" class="cta-button" download>Download Emulator6809_V1.5 (.msi)</a>
+        
+        <!-- LIEN DE TÉLÉCHARGEMENT CORRECT -->
+        <a href="https://github.com/Emulator6809/Emulator6809/raw/main/download/Emulator6809_V1.5.msi" 
+           class="cta-button" 
+           download="Emulator6809_V1.5.msi">
+           Download Emulator6809_V1.5 (.msi)
+        </a>
+        
         <p><strong>Versions payantes symboliques :</strong> Standard 2€, Pro 5€ – pour soutenir le développement</p>
+        <p><em>Pour les versions payantes, contactez-nous par email.</em></p>
     </div>
 
     <div class="contact">
         <h2>Contact</h2>
         <p>Email: contact@emu6809.com</p>
         <p>Téléphone: +33 1 23 45 67 89</p>
+        <p>GitHub: <a href="https://github.com/Emulator6809/Emulator6809" style="color: white; text-decoration: underline;">github.com/Emulator6809</a></p>
     </div>
 </body>
 </html>
-
