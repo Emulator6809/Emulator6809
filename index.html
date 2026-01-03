@@ -61,6 +61,13 @@
             text-align: center;
             margin-top: 30px;
         }
+        .download-instructions {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
     </style>
 </head>
 <body>
@@ -86,25 +93,55 @@
     </div>
 
     <div class="pricing" id="download">
-        <h2>Téléchargement</h2>
-        <p>Cliquez ci-dessous pour télécharger la version gratuite :</p>
+        <h2>📥 Téléchargement</h2>
+        <p>Cliquez sur le bouton ci-dessous pour télécharger la version gratuite :</p>
         
-        <!-- LIEN QUI FONCTIONNE -->
-        <a href="https://github.com/Emulator6809/Emulator6809/raw/main/download/Emulator6809_V1.5.msi" 
+        <!-- LIEN DE TÉLÉCHARGEMENT DIRECT -->
+        <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
            class="cta-button" 
            download="Emulator6809_V1.5.msi">
-           Télécharger Emulator6809 V1.5 (.msi)
+           ⬇️ Télécharger Emulator6809 V1.5 (.msi - 3 Mo)
         </a>
         
-        <p><strong>Versions payantes symboliques :</strong> Standard 2€, Pro 5€ – pour soutenir le développement</p>
-        <p><em>Pour les versions payantes, contactez-nous par email.</em></p>
+        <div class="download-instructions">
+            <p><strong>💡 Instructions :</strong></p>
+            <ul>
+                <li>Le téléchargement devrait démarrer automatiquement</li>
+                <li>Si une page blanche s'ouvre, faites <strong>clic droit → "Enregistrer sous..."</strong></li>
+                <li>Le fichier pèse environ 3 Mo</li>
+            </ul>
+        </div>
+        
+        <p><strong>💰 Versions payantes symboliques :</strong> Standard 2€, Pro 5€ – pour soutenir le développement</p>
+        
+        <p style="margin-top: 20px;">
+            <small>Problème avec le lien direct ?<br>
+            Essayez : <a href="https://github.com/Emulator6809/Emulator6809/releases">Page Releases GitHub</a></small>
+        </p>
     </div>
 
     <div class="contact">
-        <h2>Contact</h2>
-        <p>Email: contact@emu6809.com</p>
-        <p>Téléphone: +33 1 23 45 67 89</p>
-        <p>GitHub: <a href="https://github.com/Emulator6809/Emulator6809" style="color: white; text-decoration: underline;">github.com/Emulator6809</a></p>
+        <h2>📞 Contact</h2>
+        <p>📧 Email: contact@emu6809.com</p>
+        <p>📞 Téléphone: +33 1 23 45 67 89</p>
+        <p>🐱 GitHub: <a href="https://github.com/Emulator6809/Emulator6809" style="color: white; text-decoration: underline;">github.com/Emulator6809</a></p>
     </div>
+
+    <script>
+        // Script pour améliorer l'expérience de téléchargement
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.cta-button[download]');
+            if(downloadBtn) {
+                // Ajouter un événement pour suivre les clics
+                downloadBtn.addEventListener('click', function() {
+                    console.log('Début du téléchargement...');
+                    // Le téléchargement se fera normalement via le lien
+                });
+                
+                // Forcer l'attribut download pour certains navigateurs
+                downloadBtn.setAttribute('download', 'Emulator6809_V1.5.msi');
+            }
+        });
+    </script>
 </body>
 </html>
