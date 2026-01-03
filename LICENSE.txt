@@ -1,0 +1,11 @@
+Emulator6809 - Educational License
+
+© 2026 Emulator6809. All rights reserved.
+
+1. Emulator6809 is primarily intended for educational purposes.
+2. The free version may be used by anyone for learning and experimentation.
+3. Paid versions are available at a symbolic price to support and promote the development of Emulator6809:
+   - Standard License: 2 €
+   - Pro License: 5 €
+4. Redistribution, modification, or commercial use of any version is not allowed without explicit permission.
+
