@@ -26,7 +26,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #e5e5e5;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .nav-content {
@@ -34,12 +34,13 @@
             margin: 0 auto;
             padding: 0 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            gap: 15px;
         }
 
         .logo-nav {
-            height: 45px;
+            height: 60px;
             width: auto;
         }
 
@@ -64,7 +65,7 @@
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 150px 30px 100px;
+            padding: 180px 30px 100px;
             text-align: center;
         }
 
@@ -121,6 +122,15 @@
             margin-bottom: 60px;
             text-align: center;
             color: #1a1a1a;
+        }
+
+        .category-title {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 600;
+            margin: 50px 0 30px;
+            color: #4285f4;
+            padding-left: 20px;
+            border-left: 4px solid #4285f4;
         }
 
         .gallery {
@@ -422,20 +432,9 @@
     <div class="section" id="gallery">
         <h2 class="section-title">Présentation</h2>
         
+        <!-- Émulateur -->
+        <h3 class="category-title">Émulateur</h3>
         <div class="gallery">
-            <div class="gallery-card">
-                <div class="gallery-img-wrapper">
-                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/logo.png" 
-                         alt="Logo Emu6809" 
-                         class="gallery-img"
-                         onerror="this.style.display='none'">
-                </div>
-                <div class="gallery-content">
-                    <h3>Identité Visuelle</h3>
-                    <p>Logo officiel de l'émulateur Emu6809 représentant l'héritage Motorola 6809</p>
-                </div>
-            </div>
-            
             <div class="gallery-card">
                 <div class="gallery-img-wrapper">
                     <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/emulator.png" 
@@ -444,21 +443,94 @@
                          onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-content">
-                    <h3>Interface Principale</h3>
-                    <p>Capture d'écran complète de l'interface utilisateur moderne et intuitive</p>
+                    <h3>Fenêtre Principale</h3>
+                    <p>Interface utilisateur complète de l'émulateur Motorola 6809</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Système -->
+        <h3 class="category-title">Configuration Système</h3>
+        <div class="gallery">
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/ConfigMemory.png" 
+                         alt="Configuration Mémoire" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>Configuration Mémoire</h3>
+                    <p>Interface intuitive de configuration et gestion de la mémoire système</p>
                 </div>
             </div>
             
             <div class="gallery-card">
                 <div class="gallery-img-wrapper">
-                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/InputOutput.png" 
-                         alt="Gestion Input/Output" 
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/ConfigIO.png" 
+                         alt="Configuration I/O" 
                          class="gallery-img"
                          onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-content">
-                    <h3>Gestion I/O</h3>
-                    <p>Interface de configuration des entrées/sorties et périphériques</p>
+                    <h3>Configuration I/O</h3>
+                    <p>Paramétrage complet des entrées/sorties et périphériques</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Périphériques I/O -->
+        <h3 class="category-title">Périphériques I/O</h3>
+        <div class="gallery">
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Screen.png" 
+                         alt="Périphérique Screen" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>Screen</h3>
+                    <p>Gestion de l'affichage et du moniteur vidéo</p>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/PIA.png" 
+                         alt="Périphérique PIA" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>PIA</h3>
+                    <p>Interface d'adaptateur périphérique (Peripheral Interface Adapter)</p>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Clock.png" 
+                         alt="Périphérique Clock" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>Clock</h3>
+                    <p>Gestion de l'horloge système et synchronisation</p>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Analog.png" 
+                         alt="Périphérique Analog" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>Analog</h3>
+                    <p>Interface pour les entrées analogiques et joysticks</p>
                 </div>
             </div>
         </div>
@@ -567,3 +639,4 @@
     </div>
 </body>
 </html>
+
