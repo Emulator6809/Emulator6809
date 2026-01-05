@@ -1,0 +1,11 @@
+include:
+  - download/
+  - LICENSE.txt
+  - README.md
+
+exclude:
+  - images/
+  - index.html
+  - .gitignore
+  - .nojekyll
+  - _config.yml
