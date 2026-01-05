@@ -7,9 +7,18 @@ Thumbs.db
 *.tmp
 
 # Ignore IDE/editor config
-*.vscode/
-*.idea/
+.vscode/
+.idea/
 
-# Ignore executables unless in download folder
-*.exe
-*.zip
+# Ignorer TOUT par défaut
+*
+*/
+
+# AUTORISER EXPLICITEMENT ces fichiers et dossiers
+!LICENSE.txt
+!README.md
+
+# AUTORISER le dossier download et tout son contenu
+!download/
+!download/**
+
