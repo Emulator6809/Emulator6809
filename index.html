@@ -16,34 +16,27 @@
             background: #ffffff;
             color: #1a1a1a;
             line-height: 1.6;
-            display: flex; /* Nouveau: disposition flex */
-            min-height: 100vh;
         }
 
-        /* Navigation à gauche */
         nav {
             position: fixed;
-            left: 0;
             top: 0;
-            width: 220px; /* Largeur fixe pour la marge */
-            height: 100vh;
+            width: 100%;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border-right: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
             z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 0;
-            overflow-y: auto;
+            padding: 15px 0;
         }
 
         .nav-content {
-            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
+            gap: 15px;
         }
 
         .logo-nav {
@@ -53,10 +46,8 @@
 
         .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 35px;
             align-items: center;
-            width: 100%;
         }
 
         .nav-links a {
@@ -64,48 +55,17 @@
             text-decoration: none;
             font-size: 15px;
             font-weight: 500;
-            transition: all 0.3s;
-            padding: 10px 20px;
-            border-radius: 6px;
-            width: 160px;
-            text-align: center;
-            position: relative;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
             color: #4285f4;
-            background: rgba(66, 133, 244, 0.1);
-        }
-
-        /* Indicateur de section active */
-        .nav-links a.active {
-            color: #4285f4;
-            background: rgba(66, 133, 244, 0.1);
-            font-weight: 600;
-        }
-
-        .nav-links a.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: #4285f4;
-            border-radius: 0 3px 3px 0;
-        }
-
-        /* Contenu principal */
-        main {
-            flex: 1;
-            margin-left: 220px; /* Décalage pour la nav */
-            width: calc(100% - 220px);
         }
 
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px 30px 80px;
+            padding: 180px 30px 100px;
             text-align: center;
         }
 
@@ -156,6 +116,7 @@
             padding: 80px 30px;
         }
 
+        /* STYLE UNIFORME POUR TOUS LES TITRES DE SECTIONS */
         .section-title {
             font-size: clamp(32px, 5vw, 42px);
             font-weight: 700;
@@ -263,26 +224,15 @@
             line-height: 1.7;
         }
 
-        .highlight-section {
-            background: #fafafa;
-            padding: 60px 40px;
-            border-radius: 12px;
-            margin: 80px 0;
-            border: 1px solid #e5e5e5;
-        }
-
-        .highlight-section h2 {
-            font-size: clamp(28px, 4vw, 36px);
-            margin-bottom: 20px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
+        /* SUPPRIMÉ highlight-section */
         .highlight-description {
             font-size: 18px;
             line-height: 1.8;
             color: #666;
             margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .io-img {
@@ -299,6 +249,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            margin-top: 40px;
         }
 
         .io-feature-box {
@@ -321,24 +272,14 @@
             font-size: 15px;
         }
 
-        .download-section {
+        /* SUPPRIMÉ download-section */
+        .download-content {
             background: #1a1a1a;
             color: white;
             padding: 80px 40px;
             border-radius: 12px;
             text-align: center;
             margin: 80px 0;
-        }
-
-        .download-section h2 {
-            font-size: clamp(32px, 5vw, 42px);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .download-section .highlight-description {
-            color: #ccc;
-            margin-bottom: 40px;
         }
 
         .download-icon {
@@ -382,20 +323,14 @@
             color: white;
         }
 
-        .contact-section {
+        /* SUPPRIMÉ contact-section */
+        .contact-content {
             background: #fafafa;
             padding: 60px 40px;
             border-radius: 12px;
             text-align: center;
             margin-top: 80px;
             border: 1px solid #e5e5e5;
-        }
-
-        .contact-section h2 {
-            font-size: clamp(32px, 5vw, 42px);
-            margin-bottom: 40px;
-            font-weight: 700;
-            color: #1a1a1a;
         }
 
         .contact-icon {
@@ -428,78 +363,9 @@
             color: #1a1a1a;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            nav {
-                width: 180px;
-            }
-            
-            main {
-                margin-left: 180px;
-                width: calc(100% - 180px);
-            }
-            
-            .nav-links a {
-                width: 140px;
-                font-size: 14px;
-                padding: 8px 15px;
-            }
-        }
-
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            
-            nav {
-                position: relative;
-                width: 100%;
-                height: auto;
-                flex-direction: row;
-                padding: 15px 20px;
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-            }
-            
-            .nav-content {
-                flex-direction: row;
-                justify-content: space-between;
-                gap: 20px;
-            }
-            
-            .logo-nav {
-                height: 40px;
-            }
-            
             .nav-links {
-                flex-direction: row;
-                gap: 10px;
-                width: auto;
-            }
-            
-            .nav-links a {
-                width: auto;
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-            
-            .nav-links a.active::before {
-                top: auto;
-                left: 0;
-                right: 0;
-                bottom: -15px;
-                height: 3px;
-                width: 100%;
-                border-radius: 3px 3px 0 0;
-            }
-            
-            main {
-                margin-left: 0;
-                width: 100%;
-            }
-            
-            .hero {
-                padding: 60px 20px 40px;
+                display: none;
             }
             
             .section {
@@ -509,34 +375,20 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
-        }
-
-        @media (max-width: 480px) {
-            .nav-content {
-                flex-direction: column;
-                gap: 15px;
+            
+            .download-content,
+            .contact-content {
+                padding: 40px 20px;
+                margin: 40px 0;
             }
             
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
+            .io-features {
+                grid-template-columns: 1fr;
             }
-            
-            .nav-links a {
-                flex: 1;
-                min-width: 100px;
-                text-align: center;
-            }
-        }
-
-        /* Animation pour le scroll */
-        html {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation à gauche -->
     <nav>
         <div class="nav-content">
             <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/logo.png" 
@@ -544,7 +396,7 @@
                  class="logo-nav"
                  onerror="this.style.display='none'">
             <div class="nav-links">
-                <a href="#about" class="active">About</a>
+                <a href="#about">About</a>
                 <a href="#features">Features</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#download">Download</a>
@@ -553,420 +405,394 @@
         </div>
     </nav>
 
-    <!-- Contenu principal -->
-    <main>
-        <div class="hero">
-            <h1>Emulator 6809</h1>
-            <p class="subtitle">Computer System Simulator based on the Motorola MC6809 Microprocessor</p>
-            <p class="description">
-                It includes ROM, RAM, basic I/O, and an integrated assembler, designed for education, low-level software development, and experimentation with microprocessor-based systems.
-            </p>
-            <a href="#download" class="cta-button">Download for free</a>
-        </div>
+    <div class="hero">
+        <h1>Emulator 6809</h1>
+        <p class="subtitle">Computer System Simulator based on the Motorola MC6809 Microprocessor</p>
+        <p class="description">
+            It includes ROM, RAM, basic I/O, and an integrated assembler, designed for education, low-level software development, and experimentation with microprocessor-based systems.
+        </p>
+        <a href="#download" class="cta-button">Download for free</a>
+    </div>
 
-        <div class="section" id="about">
-            <div class="highlight-section">
-                <h2>About Emulator 6809</h2>
-                <p class="highlight-description">
-                    Born from a deep passion for computing science and education, <strong>Emulator 6809</strong> is dedicated to one primary mission: <strong>promoting the study and understanding of microprocessor-based systems</strong>.
-                </p>
-                <p class="highlight-description">
-                    We believe that understanding the fundamentals of microprocessor architecture is essential for any serious computer scientist or engineer. The legendary Motorola 6809 processor, with its elegant design and powerful instruction set, serves as the perfect educational platform.
-                </p>
-                <p class="highlight-description">
-                    This project represents our commitment to making low-level computing accessible, engaging, and educational for students, hobbyists, and professionals around the globe. Through accurate emulation, intuitive tools, and comprehensive documentation, we're preserving computing heritage while inspiring the next generation of engineers.
-                </p>
-                
-                <div class="io-features">
-                    <div class="io-feature-box">
-                        <h3>🎯 Mission</h3>
-                        <p>Promote microprocessor education through accurate emulation</p>
-                    </div>
-                    <div class="io-feature-box">
-                        <h3>📚 Educational Focus</h3>
-                        <p>Designed for students, educators, and enthusiasts</p>
-                    </div>
-                    <div class="io-feature-box">
-                        <h3>🔧 Practical Learning</h3>
-                        <p>Hands-on experience with real microprocessor concepts</p>
-                    </div>
-                    <div class="io-feature-box">
-                        <h3>🌍 Global Impact</h3>
-                        <p>Accessible to learners worldwide</p>
-                    </div>
+    <!-- SECTION ABOUT AVEC STYLE UNIFORME -->
+    <div class="section" id="about">
+        <h2 class="section-title">About</h2>
+        
+        <p class="highlight-description">
+            Born from a deep passion for computing science and education, <strong>Emulator 6809</strong> is dedicated to one primary mission: <strong>promoting the study and understanding of microprocessor-based systems</strong>.
+        </p>
+        
+        <p class="highlight-description">
+            We believe that understanding the fundamentals of microprocessor architecture is essential for any serious computer scientist or engineer. The legendary Motorola 6809 processor, with its elegant design and powerful instruction set, serves as the perfect educational platform.
+        </p>
+        
+        <p class="highlight-description">
+            This project represents our commitment to making low-level computing accessible, engaging, and educational for students, hobbyists, and professionals around the globe. Through accurate emulation, intuitive tools, and comprehensive documentation, we're preserving computing heritage while inspiring the next generation of engineers.
+        </p>
+        
+        <div class="io-features">
+            <div class="io-feature-box">
+                <h3>🎯 Mission</h3>
+                <p>Promote microprocessor education through accurate emulation</p>
+            </div>
+            <div class="io-feature-box">
+                <h3>📚 Educational Focus</h3>
+                <p>Designed for students, educators, and enthusiasts</p>
+            </div>
+            <div class="io-feature-box">
+                <h3>🔧 Practical Learning</h3>
+                <p>Hands-on experience with real microprocessor concepts</p>
+            </div>
+            <div class="io-feature-box">
+                <h3>🌍 Global Impact</h3>
+                <p>Accessible to learners worldwide</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION GALLERY AVEC STYLE UNIFORME -->
+    <div class="section" id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        
+        <!-- Émulateur -->
+        <h3 class="category-title">Emulator</h3>
+        <div class="gallery">
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/emulator.png" 
+                         alt="Interface Emu6809" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>Main Window</h3>
+                    <p>The main interface provides a complete view of the MC6809 minimal computing system, displaying the CPU with all its registers, ROM, RAM, System Stack, and User Stack in real-time. It includes hardware interrupt simulation capabilities (IRQ, FIRQ, and NMI) for comprehensive system testing. The integrated code editor enables users to write assembly programs or open existing files, assemble them using the built-in assembler, and execute them with educational controls: RUN for continuous execution, STEP for single-instruction debugging, and HALT to stop execution. The editor highlights the currently executing line, providing clear visual feedback for learning program flow and debugging. This comprehensive interface is specifically designed for educational purposes, helping users understand how a minimal computing system operates with all its essential components: CPU 6809, ROM, RAM, and I/O devices.</p>
                 </div>
             </div>
         </div>
 
-        <div class="section" id="gallery">
-            <h2 class="section-title">Gallery</h2>
+        <!-- Configuration Système -->
+        <h3 class="category-title">System Configuration</h3>
+        <div class="gallery">
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/ConfigMemory.png" 
+                         alt="Memory Configuration" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
+                    <h3>Memory Configuration</h3>
+                    <p>The Memory Configuration interface provides intuitive memory management capabilities, allowing users to easily configure ROM size, RAM size, System Stack size, and User Stack size. This user-friendly interface simplifies memory layout customization, making it accessible for educational purposes while providing the flexibility needed for advanced development scenarios.</p>
+                </div>
+            </div>
             
-            <!-- Émulateur -->
-            <h3 class="category-title">Emulator</h3>
-            <div class="gallery">
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/emulator.png" 
-                             alt="Interface Emu6809" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Main Window</h3>
-                        <p>The main interface provides a complete view of the MC6809 minimal computing system, displaying the CPU with all its registers, ROM, RAM, System Stack, and User Stack in real-time. It includes hardware interrupt simulation capabilities (IRQ, FIRQ, and NMI) for comprehensive system testing. The integrated code editor enables users to write assembly programs or open existing files, assemble them using the built-in assembler, and execute them with educational controls: RUN for continuous execution, STEP for single-instruction debugging, and HALT to stop execution. The editor highlights the currently executing line, providing clear visual feedback for learning program flow and debugging. This comprehensive interface is specifically designed for educational purposes, helping users understand how a minimal computing system operates with all its essential components: CPU 6809, ROM, RAM, and I/O devices.</p>
-                    </div>
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/ConfigIO.png" 
+                         alt="I/O Configuration" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
                 </div>
-            </div>
-
-            <!-- Configuration Système -->
-            <h3 class="category-title">System Configuration</h3>
-            <div class="gallery">
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/ConfigMemory.png" 
-                             alt="Memory Configuration" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Memory Configuration</h3>
-                        <p>The Memory Configuration interface provides intuitive memory management capabilities, allowing users to easily configure ROM size, RAM size, System Stack size, and User Stack size. This user-friendly interface simplifies memory layout customization, making it accessible for educational purposes while providing the flexibility needed for advanced development scenarios.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/ConfigIO.png" 
-                             alt="I/O Configuration" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>I/O Configuration</h3>
-                        <p>The I/O Configuration interface provides comprehensive peripheral address management, allowing users to configure memory-mapped addresses for all I/O devices. This flexibility enables custom system architectures and facilitates learning about memory-mapped I/O concepts in microprocessor-based systems.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Périphériques I/O -->
-            <h3 class="category-title">I/O Peripherals</h3>
-            <div class="gallery">
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Screen.png" 
-                             alt="ASCII Screen Display" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>ASCII Screen Display</h3>
-                        <p>The ASCII Screen Display emulates a text-based output device with a 5-line by 20-character display matrix. Each character position can display any standard ASCII character, making it ideal for system messages, debugging output, and simple user interfaces in 6809-based applications.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/PIA.png" 
-                             alt="PIA Peripheral" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>PIA</h3>
-                        <p>The Peripheral Interface Adapter (PIA) offers two dedicated 8-bit ports for system I/O operations. One port is configured for input operations while the other handles output. Each bit within both ports can be individually managed and monitored in real-time, providing granular control over peripheral devices and enabling detailed observation of data flow in 6809-based applications.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Clock.png" 
-                             alt="BCD 7-Segment Digital Clock" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>BCD 7-Segment Digital Clock</h3>
-                        <p>The BCD 7-Segment Digital Clock provides a real-time clock interface that user programs can read and adjust. It supports two operating modes: Automatic mode, where the clock runs independently using system time, and Manual mode, where the user program must generate clock pulses to advance the time. This dual-mode operation enables both real-time applications and precise timing control for testing and educational demonstrations.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Analog.png" 
-                             alt="Analog Sensors Interface" 
-                             class="gallery-img"
-                             onerror="this.style.display='none'">
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Analog Sensors Interface</h3>
-                        <p>The Analog Sensors Interface enables simulation of multiple analog sensors including voltage, temperature, luminosity, and pressure measurements. It features an integrated Analog-to-Digital Converter (ADC) with configurable resolution (8-bit or 16-bit) and selectable output format (BCD or natural binary). This flexibility allows users to experiment with various sensor configurations and data acquisition techniques in educational and development scenarios.</p>
-                    </div>
+                <div class="gallery-content">
+                    <h3>I/O Configuration</h3>
+                    <p>The I/O Configuration interface provides comprehensive peripheral address management, allowing users to configure memory-mapped addresses for all I/O devices. This flexibility enables custom system architectures and facilitates learning about memory-mapped I/O concepts in microprocessor-based systems.</p>
                 </div>
             </div>
         </div>
 
-        <div class="section" id="features">
-            <h2 class="section-title">Features</h2>
-            
-            <h3 class="category-title">Core Emulation Features</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Accurate MC6809 Emulation</h3>
-                    <p>Cycle-by-cycle emulation with unmatched precision and adjustable execution speed for better observation of program flow.</p>
+        <!-- Périphériques I/O -->
+        <h3 class="category-title">I/O Peripherals</h3>
+        <div class="gallery">
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Screen.png" 
+                         alt="ASCII Screen Display" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3>Complete Register Visualization</h3>
-                    <p>Real-time display of all CPU registers (A, B, D, X, Y, U, S, PC, CC).</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💾</span>
-                    <h3>Configurable Memory System</h3>
-                    <p>Adjustable ROM size, RAM size, System Stack, and User Stack.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⚠️</span>
-                    <h3>Hardware Interrupt Simulation</h3>
-                    <p>Support for IRQ, FIRQ, and NMI interrupts for comprehensive system testing.</p>
-                </div>
-            </div>
-
-            <h3 class="category-title">Development & Debugging Tools</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📝</span>
-                    <h3>Integrated Assembly Editor</h3>
-                    <p>Write and edit assembly programs with syntax support.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔧</span>
-                    <h3>Built-in Assembler</h3>
-                    <p>Compile programs directly within the emulator.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎮</span>
-                    <h3>Educational Execution Controls</h3>
-                    <p>RUN (continuous), STEP (single-instruction), and HALT modes.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔍</span>
-                    <h3>Real-time Code Tracking</h3>
-                    <p>Visual highlighting of currently executing instruction line.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🗂️</span>
-                    <h3>Memory Inspection</h3>
-                    <p>View and monitor memory contents in real-time.</p>
-                </div>
-            </div>
-
-            <h3 class="category-title">I/O Peripherals & Devices</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🖥️</span>
+                <div class="gallery-content">
                     <h3>ASCII Screen Display</h3>
-                    <p>5×20 character text-based output with full ASCII support.</p>
+                    <p>The ASCII Screen Display emulates a text-based output device with a 5-line by 20-character display matrix. Each character position can display any standard ASCII character, making it ideal for system messages, debugging output, and simple user interfaces in 6809-based applications.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔌</span>
-                    <h3>PIA (Peripheral Interface Adapter)</h3>
-                    <p>Dual 8-bit I/O ports with individual bit-level control.</p>
+            </div>
+            
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/PIA.png" 
+                         alt="PIA Peripheral" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⏰</span>
+                <div class="gallery-content">
+                    <h3>PIA</h3>
+                    <p>The Peripheral Interface Adapter (PIA) offers two dedicated 8-bit ports for system I/O operations. One port is configured for input operations while the other handles output. Each bit within both ports can be individually managed and monitored in real-time, providing granular control over peripheral devices and enabling detailed observation of data flow in 6809-based applications.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Clock.png" 
+                         alt="BCD 7-Segment Digital Clock" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
                     <h3>BCD 7-Segment Digital Clock</h3>
-                    <p>Real-time clock with Automatic and Manual modes.</p>
+                    <p>The BCD 7-Segment Digital Clock provides a real-time clock interface that user programs can read and adjust. It supports two operating modes: Automatic mode, where the clock runs independently using system time, and Manual mode, where the user program must generate clock pulses to advance the time. This dual-mode operation enables both real-time applications and precise timing control for testing and educational demonstrations.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📡</span>
+            </div>
+            
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/Analog.png" 
+                         alt="Analog Sensors Interface" 
+                         class="gallery-img"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-content">
                     <h3>Analog Sensors Interface</h3>
-                    <p>Simulate voltage, temperature, luminosity, and pressure sensors.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔄</span>
-                    <h3>Configurable ADC</h3>
-                    <p>8-bit or 16-bit resolution with BCD or natural binary output formats.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🗺️</span>
-                    <h3>Memory-Mapped I/O</h3>
-                    <p>Flexible peripheral address configuration.</p>
-                </div>
-            </div>
-
-            <h3 class="category-title">System Configuration</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">⚙️</span>
-                    <h3>Intuitive Memory Configuration</h3>
-                    <p>Easy setup of ROM, RAM, and stack sizes.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📍</span>
-                    <h3>Flexible I/O Address Mapping</h3>
-                    <p>Configure memory-mapped addresses for all peripherals.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🕐</span>
-                    <h3>Dual Clock Modes</h3>
-                    <p>Automatic (system-driven) and Manual (program-controlled) timing.</p>
-                </div>
-            </div>
-
-            <h3 class="category-title">Educational Features</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">👣</span>
-                    <h3>Step-by-Step Execution</h3>
-                    <p>Learn assembly programming instruction by instruction.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎚️</span>
-                    <h3>Adjustable Execution Speed</h3>
-                    <p>Control program speed to observe and understand execution details.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎨</span>
-                    <h3>Visual Program Flow</h3>
-                    <p>Real-time execution tracking with line highlighting.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🏗️</span>
-                    <h3>Complete System View</h3>
-                    <p>Understand minimal computing system architecture (CPU, ROM, RAM, I/O).</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎓</span>
-                    <h3>Hands-on Learning</h3>
-                    <p>Experiment with memory management, I/O operations, and interrupt handling.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3>Data Acquisition Practice</h3>
-                    <p>Learn ADC concepts with configurable resolution and formats.</p>
-                </div>
-            </div>
-
-            <h3 class="category-title">Standards & Encoding</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📄</span>
-                    <h3>Standard ASCII Support</h3>
-                    <p>Full character set for text operations.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔢</span>
-                    <h3>Multiple Data Formats</h3>
-                    <p>BCD and natural binary encoding support.</p>
-                </div>
-            </div>
-
-            <h3 class="category-title">User Interface</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📺</span>
-                    <h3>Real-time System Monitoring</h3>
-                    <p>Live view of all system components.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Intuitive Controls</h3>
-                    <p>User-friendly interface for all configurations.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💡</span>
-                    <h3>Visual Feedback</h3>
-                    <p>Color-coded execution tracking and status indicators.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🖼️</span>
-                    <h3>Professional Layout</h3>
-                    <p>Clean, organized workspace for development.</p>
+                    <p>The Analog Sensors Interface enables simulation of multiple analog sensors including voltage, temperature, luminosity, and pressure measurements. It features an integrated Analog-to-Digital Converter (ADC) with configurable resolution (8-bit or 16-bit) and selectable output format (BCD or natural binary). This flexibility allows users to experiment with various sensor configurations and data acquisition techniques in educational and development scenarios.</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="section" id="download">
-            <div class="download-section">
-                <h2>Download</h2>
-                <p class="highlight-description">
-                    Get the complete version of the most advanced emulator 
-                    for the Motorola 6809 processor for free
+    <!-- SECTION FEATURES AVEC STYLE UNIFORME -->
+    <div class="section" id="features">
+        <h2 class="section-title">Features</h2>
+        
+        <h3 class="category-title">Core Emulation Features</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Accurate MC6809 Emulation</h3>
+                <p>Cycle-by-cycle emulation with unmatched precision and adjustable execution speed for better observation of program flow.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Complete Register Visualization</h3>
+                <p>Real-time display of all CPU registers (A, B, D, X, Y, U, S, PC, CC).</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💾</span>
+                <h3>Configurable Memory System</h3>
+                <p>Adjustable ROM size, RAM size, System Stack, and User Stack.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚠️</span>
+                <h3>Hardware Interrupt Simulation</h3>
+                <p>Support for IRQ, FIRQ, and NMI interrupts for comprehensive system testing.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">Development & Debugging Tools</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📝</span>
+                <h3>Integrated Assembly Editor</h3>
+                <p>Write and edit assembly programs with syntax support.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔧</span>
+                <h3>Built-in Assembler</h3>
+                <p>Compile programs directly within the emulator.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎮</span>
+                <h3>Educational Execution Controls</h3>
+                <p>RUN (continuous), STEP (single-instruction), and HALT modes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔍</span>
+                <h3>Real-time Code Tracking</h3>
+                <p>Visual highlighting of currently executing instruction line.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🗂️</span>
+                <h3>Memory Inspection</h3>
+                <p>View and monitor memory contents in real-time.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">I/O Peripherals & Devices</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🖥️</span>
+                <h3>ASCII Screen Display</h3>
+                <p>5×20 character text-based output with full ASCII support.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔌</span>
+                <h3>PIA (Peripheral Interface Adapter)</h3>
+                <p>Dual 8-bit I/O ports with individual bit-level control.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⏰</span>
+                <h3>BCD 7-Segment Digital Clock</h3>
+                <p>Real-time clock with Automatic and Manual modes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📡</span>
+                <h3>Analog Sensors Interface</h3>
+                <p>Simulate voltage, temperature, luminosity, and pressure sensors.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>Configurable ADC</h3>
+                <p>8-bit or 16-bit resolution with BCD or natural binary output formats.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🗺️</span>
+                <h3>Memory-Mapped I/O</h3>
+                <p>Flexible peripheral address configuration.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">System Configuration</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">⚙️</span>
+                <h3>Intuitive Memory Configuration</h3>
+                <p>Easy setup of ROM, RAM, and stack sizes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📍</span>
+                <h3>Flexible I/O Address Mapping</h3>
+                <p>Configure memory-mapped addresses for all peripherals.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🕐</span>
+                <h3>Dual Clock Modes</h3>
+                <p>Automatic (system-driven) and Manual (program-controlled) timing.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">Educational Features</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">👣</span>
+                <h3>Step-by-Step Execution</h3>
+                <p>Learn assembly programming instruction by instruction.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎚️</span>
+                <h3>Adjustable Execution Speed</h3>
+                <p>Control program speed to observe and understand execution details.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Visual Program Flow</h3>
+                <p>Real-time execution tracking with line highlighting.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏗️</span>
+                <h3>Complete System View</h3>
+                <p>Understand minimal computing system architecture (CPU, ROM, RAM, I/O).</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎓</span>
+                <h3>Hands-on Learning</h3>
+                <p>Experiment with memory management, I/O operations, and interrupt handling.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Data Acquisition Practice</h3>
+                <p>Learn ADC concepts with configurable resolution and formats.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">Standards & Encoding</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📄</span>
+                <h3>Standard ASCII Support</h3>
+                <p>Full character set for text operations.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔢</span>
+                <h3>Multiple Data Formats</h3>
+                <p>BCD and natural binary encoding support.</p>
+            </div>
+        </div>
+
+        <h3 class="category-title">User Interface</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📺</span>
+                <h3>Real-time System Monitoring</h3>
+                <p>Live view of all system components.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3>Intuitive Controls</h3>
+                <p>User-friendly interface for all configurations.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💡</span>
+                <h3>Visual Feedback</h3>
+                <p>Color-coded execution tracking and status indicators.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🖼️</span>
+                <h3>Professional Layout</h3>
+                <p>Clean, organized workspace for development.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION DOWNLOAD AVEC STYLE UNIFORME -->
+    <div class="section" id="download">
+        <h2 class="section-title">Download</h2>
+        
+        <div class="download-content">
+            <p class="highlight-description" style="color: #ccc; margin-bottom: 40px;">
+                Get the complete version of the most advanced emulator 
+                for the Motorola 6809 processor for free
+            </p>
+            
+            <div class="download-icon">⬇️</div>
+            
+            <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
+               class="cta-button" 
+               download="Emulator6809_V1.5.msi">
+               Download Emulator 6809 V1.5
+            </a>
+            
+            <div class="download-info">
+                <p><strong>File:</strong> Emulator6809_V1.5.msi (3 MB)</p>
+                <p><strong>Compatibility:</strong> Windows 10/11 (64-bit)</p>
+                <p><strong>Versions:</strong></p>
+                <div class="pricing-badges">
+                    <span class="badge">Free</span>
+                    <span class="badge">Standard (€2)</span>
+                    <span class="badge">Pro (€5)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION CONTACT AVEC STYLE UNIFORME -->
+    <div class="section" id="contact">
+        <h2 class="section-title">Contact & Support</h2>
+        
+        <div class="contact-content">
+            <div class="contact-icon">💬</div>
+            <div class="contact-info">
+                <p class="contact-item">
+                    <strong>Email :</strong> contact@emu6809.com
                 </p>
-                
-                <div class="download-icon">⬇️</div>
-                
-                <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
-                   class="cta-button" 
-                   download="Emulator6809_V1.5.msi">
-                   Download Emulator 6809 V1.5
-                </a>
-                
-                <div class="download-info">
-                    <p><strong>File:</strong> Emulator6809_V1.5.msi (3 MB)</p>
-                    <p><strong>Compatibility:</strong> Windows 10/11 (64-bit)</p>
-                    <p><strong>Versions:</strong></p>
-                    <div class="pricing-badges">
-                        <span class="badge">Free</span>
-                        <span class="badge">Standard (€2)</span>
-                        <span class="badge">Pro (€5)</span>
-                    </div>
-                </div>
+                <p class="contact-item">
+                    <strong>GitHub :</strong> 
+                    <a href="https://github.com/Emulator6809/Emulator6809">
+                        github.com/Emulator6809
+                    </a>
+                </p>
+                <p class="contact-item">
+                    <strong>Support:</strong> Technical assistance and custom development
+                </p>
             </div>
         </div>
-
-        <div class="section" id="contact">
-            <div class="contact-section">
-                <h2>Contact & Support</h2>
-                <div class="contact-icon">💬</div>
-                <div class="contact-info">
-                    <p class="contact-item">
-                        <strong>Email :</strong> contact@emu6809.com
-                    </p>
-                    <p class="contact-item">
-                        <strong>GitHub :</strong> 
-                        <a href="https://github.com/Emulator6809/Emulator6809">
-                            github.com/Emulator6809
-                        </a>
-                    </p>
-                    <p class="contact-item">
-                        <strong>Support:</strong> Technical assistance and custom development
-                    </p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        // Mise à jour du menu actif lors du défilement
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            function updateActiveNav() {
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', updateActiveNav);
-            updateActiveNav(); // Initial call
-        });
-    </script>
+    </div>
 </body>
 </html>
