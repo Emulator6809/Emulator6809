@@ -34,7 +34,7 @@
             margin: 0 auto;
             padding: 0 30px;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Changé: disposition verticale */
             align-items: center;
             gap: 15px;
         }
@@ -42,30 +42,44 @@
         .logo-nav {
             height: 60px;
             width: auto;
+            margin-bottom: 10px; /* Espace sous le logo */
         }
 
         .nav-links {
             display: flex;
-            gap: 35px;
+            flex-direction: column; /* Changé: menu vertical */
+            gap: 15px; /* Espacement vertical entre les liens */
             align-items: center;
+            width: 100%;
         }
 
         .nav-links a {
             color: #1a1a1a;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 16px; /* Légèrement plus grand pour lisibilité */
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.3s;
+            padding: 8px 20px;
+            border-radius: 6px;
+            width: 180px; /* Largeur fixe pour alignement */
+            text-align: center;
         }
 
         .nav-links a:hover {
             color: #4285f4;
+            background: rgba(66, 133, 244, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Style pour le lien actif */
+        .nav-links a:active {
+            background: rgba(66, 133, 244, 0.2);
         }
 
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 180px 30px 100px;
+            padding: 200px 30px 100px; /* Augmenté le padding-top pour la nav verticale */
             text-align: center;
         }
 
@@ -390,7 +404,19 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: flex; /* Toujours visible sur mobile */
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav-links a {
+                width: 160px;
+                font-size: 15px;
+                padding: 6px 15px;
+            }
+            
+            .hero {
+                padding: 180px 20px 80px; /* Ajusté pour mobile */
             }
             
             .section {
@@ -399,6 +425,17 @@
             
             .gallery {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* Pour les très grands écrans */
+        @media (min-width: 1400px) {
+            .nav-content {
+                max-width: 1400px;
+            }
+            
+            .section {
+                max-width: 1400px;
             }
         }
     </style>
