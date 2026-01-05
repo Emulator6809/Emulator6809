@@ -116,9 +116,9 @@
             padding: 0;
         }
 
-        /* OFFSET RÉDUIT POUR AFFICHER PLUS HAUT */
+        /* OFFSET À 20px POUR AFFICHER TRÈS HAUT */
         .section-offset {
-            scroll-margin-top: 80px; /* Réduit de 120px à 80px pour afficher plus haut */
+            scroll-margin-top: 20px; /* TRÈS HAUT */
         }
 
         .hero {
@@ -432,7 +432,7 @@
             }
             
             .section-offset {
-                scroll-margin-top: 70px;
+                scroll-margin-top: 20px;
             }
         }
 
@@ -504,7 +504,7 @@
             }
             
             .section-offset {
-                scroll-margin-top: 60px;
+                scroll-margin-top: 15px;
             }
         }
 
@@ -937,10 +937,10 @@
                 <div class="contact-icon">💬</div>
                 <div class="contact-info">
                     <p class="contact-item">
-                        <strong>Email :</strong> Emulateur6809@gmail.com <!-- NOUVELLE EMAIL -->
+                        <strong>Email :</strong> Emulateur6809@gmail.com
                     </p>
                     <p class="contact-item">
-                        <strong>Website :</strong> <!-- CHANGÉ DE GitHub À Website -->
+                        <strong>Website :</strong>
                         <a href="https://emulator6809.github.io/Emulator6809/">
                             https://emulator6809.github.io/Emulator6809/
                         </a>
@@ -959,14 +959,14 @@
             const navLinks = document.querySelectorAll('.nav-links a');
             const logoLink = document.getElementById('logo-link');
             
-            // 1. CLIC SUR LE LOGO -> HERO SECTION
+            // 1. CLIC SUR LE LOGO -> HERO SECTION (20px)
             logoLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 const heroSection = document.getElementById('hero');
                 
                 if (heroSection) {
-                    // AFFICHER PLUS HAUT - Réduit le décalage
-                    const offset = 60; // Réduit de 120 à 60 pour afficher plus haut
+                    // AFFICHER TRÈS HAUT - 20px
+                    const offset = 20;
                     
                     window.scrollTo({
                         top: heroSection.offsetTop - offset,
@@ -978,7 +978,7 @@
                 }
             });
             
-            // 2. CLIC SUR LES LIENS DU MENU - AFFICHER PLUS HAUT
+            // 2. CLIC SUR LES LIENS DU MENU - AFFICHER TRÈS HAUT (20px)
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -986,8 +986,8 @@
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
-                        // AFFICHER PLUS HAUT - Réduit le décalage
-                        const offset = 60; // Réduit de 120 à 60 pour afficher plus haut
+                        // AFFICHER TRÈS HAUT - 20px
+                        const offset = 20;
                         
                         window.scrollTo({
                             top: targetSection.offsetTop - offset,
@@ -1004,7 +1004,7 @@
             // 3. METTRE À JOUR LE MENU ACTIF AU SCROLL
             function updateActiveNav() {
                 let current = '';
-                const scrollPosition = window.scrollY + 80; // Ajusté avec le nouveau scroll-margin
+                const scrollPosition = window.scrollY + 20; // Ajusté à 20px
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
@@ -1023,7 +1023,7 @@
                 });
                 
                 // Si on est en haut de la page, aucun lien n'est actif
-                if (window.scrollY < 100) {
+                if (window.scrollY < 50) {
                     navLinks.forEach(link => link.classList.remove('active'));
                 }
             }
