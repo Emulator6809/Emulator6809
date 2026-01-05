@@ -169,6 +169,14 @@
             box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
         }
 
+        .download-button {
+            background: #28a745;
+        }
+
+        .download-button:hover {
+            background: #4285f4;
+        }
+
         /* STYLE UNIFORME POUR TOUS LES TITRES */
         .section {
             max-width: 1200px;
@@ -372,6 +380,18 @@
             font-size: 14px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
+        }
+
+        .license-badge {
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .license-badge:hover {
+            background: rgba(66, 133, 244, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
         }
 
         /* CONTACT */
@@ -904,26 +924,27 @@
             
             <div class="download-content">
                 <p class="highlight-description" style="color: #ccc; margin-bottom: 40px;">
-                    Get the complete version of the most advanced emulator 
-                    for the Motorola 6809 processor for free
+                    Emulator 6809 offers you a free Trial License to study or explore the software. 
+                    You can support the development of this educational software and unlock additional 
+                    features by purchasing a Standard License (€3) or Professional License (€5). 
+                    Contact us for more information.
                 </p>
                 
                 <div class="download-icon">⬇️</div>
                 
                 <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
-                   class="cta-button" 
+                   class="cta-button download-button" 
                    download="Emulator6809_V1.5.msi">
-                   Download Emulator 6809 V1.5
+                   Download Emulator 6809 V1.5 (Free Trial)
                 </a>
                 
                 <div class="download-info">
                     <p><strong>File:</strong> Emulator6809_V1.5.msi (3 MB)</p>
                     <p><strong>Compatibility:</strong> Windows 10/11 (64-bit)</p>
-                    <p><strong>Versions:</strong></p>
+                    <p style="margin-top: 30px; margin-bottom: 15px;"><strong>Upgrade Your License:</strong></p>
                     <div class="pricing-badges">
-                        <span class="badge">Free</span>
-                        <span class="badge">Standard (€2)</span>
-                        <span class="badge">Pro (€5)</span>
+                        <button class="badge license-badge">Standard License (€3)</button>
+                        <button class="badge license-badge">Professional License (€5)</button>
                     </div>
                 </div>
             </div>
