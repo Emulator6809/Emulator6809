@@ -18,9 +18,10 @@
             line-height: 1.6;
             display: flex;
             min-height: 100vh;
+            scroll-behavior: smooth; /* Animation fluide */
         }
 
-        /* NAVIGATION À GAUCHE */
+        /* BARRE LATÉRALE À GAUCHE */
         .sidebar {
             position: fixed;
             left: 0;
@@ -46,14 +47,21 @@
             gap: 40px;
         }
 
-        .logo-nav {
-            height: 70px;
-            width: auto;
+        /* LOGO CLICKABLE */
+        .logo-link {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
             transition: transform 0.3s;
         }
 
-        .logo-nav:hover {
+        .logo-link:hover {
             transform: scale(1.05);
+        }
+
+        .logo-nav {
+            height: 70px;
+            width: auto;
         }
 
         .nav-links {
@@ -106,6 +114,11 @@
             margin-left: 220px;
             width: calc(100% - 220px);
             padding: 0;
+        }
+
+        /* AJOUT : OFFSET POUR ALIGNEMENT AVEC LOGO */
+        .section-offset {
+            scroll-margin-top: 120px; /* Décale le scroll pour aligner avec le centre du logo */
         }
 
         .hero {
@@ -416,6 +429,10 @@
                 width: 160px;
                 padding: 10px 20px;
             }
+            
+            .section-offset {
+                scroll-margin-top: 100px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -484,6 +501,10 @@
                 padding: 40px 20px;
                 margin: 40px 0;
             }
+            
+            .section-offset {
+                scroll-margin-top: 80px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -502,10 +523,6 @@
         }
 
         /* ANIMATIONS */
-        html {
-            scroll-behavior: smooth;
-        }
-        
         .section {
             animation: fadeIn 0.6s ease-out;
         }
@@ -526,10 +543,14 @@
     <!-- BARRE LATÉRALE À GAUCHE -->
     <aside class="sidebar">
         <div class="sidebar-content">
-            <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/logo.png" 
-                 alt="Emulator 6809" 
-                 class="logo-nav"
-                 onerror="this.style.display='none'">
+            <!-- LOGO CLICKABLE -->
+            <a href="#hero" class="logo-link" id="logo-link">
+                <img src="https://raw.githubusercontent.com/Emulator6809/Emulator6809/main/images/logo.png" 
+                     alt="Emulator 6809" 
+                     class="logo-nav"
+                     onerror="this.style.display='none'">
+            </a>
+            
             <div class="nav-links">
                 <a href="#about" class="active">About</a>
                 <a href="#features">Features</a>
@@ -542,7 +563,8 @@
 
     <!-- CONTENU PRINCIPAL -->
     <main>
-        <div class="hero">
+        <!-- HERO SECTION (AJOUTÉ UN ID) -->
+        <div class="hero section-offset" id="hero">
             <h1>Emulator 6809</h1>
             <p class="subtitle">Computer System Simulator based on the Motorola MC6809 Microprocessor</p>
             <p class="description">
@@ -552,7 +574,7 @@
         </div>
 
         <!-- SECTION ABOUT -->
-        <div class="section" id="about">
+        <div class="section section-offset" id="about">
             <h2 class="section-title">About</h2>
             
             <p class="highlight-description">
@@ -588,7 +610,7 @@
         </div>
 
         <!-- SECTION GALLERY -->
-        <div class="section" id="gallery">
+        <div class="section section-offset" id="gallery">
             <h2 class="section-title">Gallery</h2>
             
             <h3 class="category-title">Emulator</h3>
@@ -693,7 +715,7 @@
         </div>
 
         <!-- SECTION FEATURES -->
-        <div class="section" id="features">
+        <div class="section section-offset" id="features">
             <h2 class="section-title">Features</h2>
             
             <h3 class="category-title">Core Emulation Features</h3>
@@ -876,7 +898,7 @@
         </div>
 
         <!-- SECTION DOWNLOAD -->
-        <div class="section" id="download">
+        <div class="section section-offset" id="download">
             <h2 class="section-title">Download</h2>
             
             <div class="download-content">
@@ -907,7 +929,7 @@
         </div>
 
         <!-- SECTION CONTACT -->
-        <div class="section" id="contact">
+        <div class="section section-offset" id="contact">
             <h2 class="section-title">Contact & Support</h2>
             
             <div class="contact-content">
@@ -931,19 +953,65 @@
     </main>
 
     <script>
-        // Mise à jour du menu actif lors du défilement
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
+            const sections = document.querySelectorAll('.section-offset');
             const navLinks = document.querySelectorAll('.nav-links a');
+            const logoLink = document.getElementById('logo-link');
             
+            // 1. CLIC SUR LE LOGO -> HERO SECTION
+            logoLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const heroSection = document.getElementById('hero');
+                
+                if (heroSection) {
+                    // Calculer la position exacte pour aligner avec le centre du logo
+                    const sidebarHeight = document.querySelector('.sidebar').offsetHeight;
+                    const logoPosition = 40 + 35; // padding-top + demi-hauteur du logo
+                    
+                    window.scrollTo({
+                        top: heroSection.offsetTop - logoPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Mettre à jour le menu actif
+                    navLinks.forEach(link => link.classList.remove('active'));
+                }
+            });
+            
+            // 2. CLIC SUR LES LIENS DU MENU
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Calculer le décalage pour aligner avec le centre du logo
+                        const sidebar = document.querySelector('.sidebar');
+                        const logoPosition = 40 + 35; // padding-top + demi-hauteur du logo
+                        
+                        window.scrollTo({
+                            top: targetSection.offsetTop - logoPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Mettre à jour le menu actif
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // 3. METTRE À JOUR LE MENU ACTIF AU SCROLL
             function updateActiveNav() {
                 let current = '';
+                const scrollPosition = window.scrollY + 120; // Ajuster avec le scroll-margin-top
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
                     
-                    if (window.scrollY >= (sectionTop - 200)) {
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -954,26 +1022,15 @@
                         link.classList.add('active');
                     }
                 });
+                
+                // Si on est en haut de la page, aucun lien n'est actif
+                if (window.scrollY < 100) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                }
             }
             
             window.addEventListener('scroll', updateActiveNav);
             updateActiveNav();
-            
-            // Animation au clic
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
         });
     </script>
 </body>
