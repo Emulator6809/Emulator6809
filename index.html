@@ -18,7 +18,7 @@
             line-height: 1.6;
             display: flex;
             min-height: 100vh;
-            scroll-behavior: smooth; /* Animation fluide */
+            scroll-behavior: smooth;
         }
 
         /* BARRE LATÉRALE À GAUCHE */
@@ -116,9 +116,9 @@
             padding: 0;
         }
 
-        /* AJOUT : OFFSET POUR ALIGNEMENT AVEC LOGO */
+        /* OFFSET RÉDUIT POUR AFFICHER PLUS HAUT */
         .section-offset {
-            scroll-margin-top: 120px; /* Décale le scroll pour aligner avec le centre du logo */
+            scroll-margin-top: 80px; /* Réduit de 120px à 80px pour afficher plus haut */
         }
 
         .hero {
@@ -407,11 +407,12 @@
         .contact-item a {
             color: #4285f4;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: all 0.3s;
         }
 
         .contact-item a:hover {
             color: #1a1a1a;
+            text-decoration: underline;
         }
 
         /* RESPONSIVE */
@@ -431,7 +432,7 @@
             }
             
             .section-offset {
-                scroll-margin-top: 100px;
+                scroll-margin-top: 70px;
             }
         }
 
@@ -503,7 +504,7 @@
             }
             
             .section-offset {
-                scroll-margin-top: 80px;
+                scroll-margin-top: 60px;
             }
         }
 
@@ -928,7 +929,7 @@
             </div>
         </div>
 
-        <!-- SECTION CONTACT -->
+        <!-- SECTION CONTACT AVEC MODIFICATIONS -->
         <div class="section section-offset" id="contact">
             <h2 class="section-title">Contact & Support</h2>
             
@@ -936,12 +937,12 @@
                 <div class="contact-icon">💬</div>
                 <div class="contact-info">
                     <p class="contact-item">
-                        <strong>Email :</strong> contact@emu6809.com
+                        <strong>Email :</strong> Emulateur6809@gmail.com <!-- NOUVELLE EMAIL -->
                     </p>
                     <p class="contact-item">
-                        <strong>GitHub :</strong> 
-                        <a href="https://github.com/Emulator6809/Emulator6809">
-                            github.com/Emulator6809
+                        <strong>Website :</strong> <!-- CHANGÉ DE GitHub À Website -->
+                        <a href="https://emulator6809.github.io/Emulator6809/">
+                            https://emulator6809.github.io/Emulator6809/
                         </a>
                     </p>
                     <p class="contact-item">
@@ -964,12 +965,11 @@
                 const heroSection = document.getElementById('hero');
                 
                 if (heroSection) {
-                    // Calculer la position exacte pour aligner avec le centre du logo
-                    const sidebarHeight = document.querySelector('.sidebar').offsetHeight;
-                    const logoPosition = 40 + 35; // padding-top + demi-hauteur du logo
+                    // AFFICHER PLUS HAUT - Réduit le décalage
+                    const offset = 60; // Réduit de 120 à 60 pour afficher plus haut
                     
                     window.scrollTo({
-                        top: heroSection.offsetTop - logoPosition,
+                        top: heroSection.offsetTop - offset,
                         behavior: 'smooth'
                     });
                     
@@ -978,7 +978,7 @@
                 }
             });
             
-            // 2. CLIC SUR LES LIENS DU MENU
+            // 2. CLIC SUR LES LIENS DU MENU - AFFICHER PLUS HAUT
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -986,12 +986,11 @@
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
-                        // Calculer le décalage pour aligner avec le centre du logo
-                        const sidebar = document.querySelector('.sidebar');
-                        const logoPosition = 40 + 35; // padding-top + demi-hauteur du logo
+                        // AFFICHER PLUS HAUT - Réduit le décalage
+                        const offset = 60; // Réduit de 120 à 60 pour afficher plus haut
                         
                         window.scrollTo({
-                            top: targetSection.offsetTop - logoPosition,
+                            top: targetSection.offsetTop - offset,
                             behavior: 'smooth'
                         });
                         
@@ -1005,7 +1004,7 @@
             // 3. METTRE À JOUR LE MENU ACTIF AU SCROLL
             function updateActiveNav() {
                 let current = '';
-                const scrollPosition = window.scrollY + 120; // Ajuster avec le scroll-margin-top
+                const scrollPosition = window.scrollY + 80; // Ajusté avec le nouveau scroll-margin
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
