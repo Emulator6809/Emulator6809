@@ -369,27 +369,29 @@
             font-size: 15px;
         }
 
-        /* DOWNLOAD */
+        /* DOWNLOAD SECTION - MODIFIÉE POUR ÊTRE PLUS COMPACTE */
         .download-content {
             background: #1a1a1a;
             color: white;
-            padding: 80px 40px;
+            padding: 60px 40px; /* Réduit de 80px à 60px */
             border-radius: 12px;
             text-align: center;
-            margin: 80px 0;
+            margin: 60px 0; /* Réduit de 80px à 60px */
+            max-height: 85vh; /* Limite la hauteur maximale */
+            overflow-y: auto; /* Permet le défilement si nécessaire */
         }
 
         .download-info {
             background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
+            padding: 25px; /* Réduit de 30px à 25px */
             border-radius: 8px;
-            margin: 40px auto;
+            margin: 30px auto; /* Réduit de 40px à 30px */
             max-width: 600px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .download-info p {
-            margin: 12px 0;
+            margin: 10px 0; /* Réduit de 12px à 10px */
             font-size: 16px;
             color: #ccc;
         }
@@ -403,7 +405,7 @@
             justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 15px; /* Réduit de 20px à 15px */
         }
 
         .badge {
@@ -550,7 +552,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .download-content,
+            .download-content {
+                padding: 40px 20px;
+                margin: 40px 0;
+                max-height: 75vh; /* Ajusté pour mobile */
+            }
+            
             .contact-content {
                 padding: 40px 20px;
                 margin: 40px 0;
@@ -594,6 +601,10 @@
             .badge {
                 width: 200px;
             }
+            
+            .download-content {
+                max-height: 70vh; /* Ajusté pour petits écrans */
+            }
         }
 
         /* ANIMATIONS */
@@ -629,7 +640,7 @@
                 <a href="#about" class="active">About</a>
                 <a href="#features">Features</a>
                 <a href="#gallery">Gallery</a>
-                <a href="#download">Download</a>
+                <a href="#download" class="download-nav">Download</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -644,7 +655,7 @@
             <p class="description">
                 It includes ROM, RAM, basic I/O, and an integrated assembler, designed for education, low-level software development, and experimentation with microprocessor-based systems.
             </p>
-            <a href="#download" class="cta-button download-button">Download for free</a>
+            <a href="#download" class="cta-button download-button" id="hero-download-btn">Download for free</a>
         </div>
 
         <!-- SECTION ABOUT -->
@@ -976,7 +987,7 @@
             <h2 class="section-title">Download</h2>
             
             <div class="download-content">
-                <p class="highlight-description" style="color: #ccc; margin-bottom: 40px;">
+                <p class="highlight-description" style="color: #ccc; margin-bottom: 30px;">
                     Emulator 6809 offers you a free Trial License to study or explore the software. 
                     You can support the development of this educational software and unlock additional 
                     features by purchasing a Standard License (€3) or Professional License (€5). 
@@ -992,7 +1003,7 @@
                     </a>
                     
                     <p><strong>Compatibility:</strong> Windows 10/11 (64-bit)</p>
-                    <p style="margin-top: 30px; margin-bottom: 15px;"><strong>Upgrade Your License:</strong></p>
+                    <p style="margin-top: 20px; margin-bottom: 15px;"><strong>Upgrade Your License:</strong></p>
                     <div class="pricing-badges">
                         <button class="badge license-badge">Standard License (€3)</button>
                         <button class="badge license-badge">Professional License (€5)</button>
@@ -1030,6 +1041,34 @@
             const sections = document.querySelectorAll('.section-offset');
             const navLinks = document.querySelectorAll('.nav-links a');
             const logoLink = document.getElementById('logo-link');
+            const heroDownloadBtn = document.getElementById('hero-download-btn');
+            const downloadNavLink = document.querySelector('.download-nav');
+            
+            // Fonction pour centrer la section Download à l'écran
+            function scrollToDownload() {
+                const downloadSection = document.getElementById('download');
+                if (downloadSection) {
+                    // Calculer la position pour centrer la section à l'écran
+                    const windowHeight = window.innerHeight;
+                    const sectionHeight = downloadSection.offsetHeight;
+                    const sectionTop = downloadSection.offsetTop;
+                    
+                    // Centrer la section (en tenant compte de la hauteur de la section)
+                    const scrollPosition = sectionTop - ((windowHeight - sectionHeight) / 2);
+                    
+                    window.scrollTo({
+                        top: Math.max(0, scrollPosition),
+                        behavior: 'smooth'
+                    });
+                    
+                    // Mettre à jour le menu actif
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    downloadNavLink.classList.add('active');
+                    
+                    return false;
+                }
+                return true;
+            }
             
             // 1. CLIC SUR LE LOGO -> HERO SECTION (20px)
             logoLink.addEventListener('click', function(e) {
@@ -1050,33 +1089,47 @@
                 }
             });
             
-            // 2. CLIC SUR LES LIENS DU MENU - AFFICHER TRÈS HAUT (20px)
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        // AFFICHER TRÈS HAUT - 20px
-                        const offset = 20;
-                        
-                        window.scrollTo({
-                            top: targetSection.offsetTop - offset,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Mettre à jour le menu actif
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        this.classList.add('active');
-                    }
-                });
+            // 2. CLIC SUR LE BOUTON DOWNLOAD DANS HERO
+            heroDownloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToDownload();
             });
             
-            // 3. METTRE À JOUR LE MENU ACTIF AU SCROLL
+            // 3. CLIC SUR LE LIEN DOWNLOAD DANS LE MENU
+            downloadNavLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToDownload();
+            });
+            
+            // 4. CLIC SUR LES AUTRES LIENS DU MENU - AFFICHER TRÈS HAUT (20px)
+            navLinks.forEach(link => {
+                if (!link.classList.contains('download-nav')) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            // AFFICHER TRÈS HAUT - 20px
+                            const offset = 20;
+                            
+                            window.scrollTo({
+                                top: targetSection.offsetTop - offset,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Mettre à jour le menu actif
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            this.classList.add('active');
+                        }
+                    });
+                }
+            });
+            
+            // 5. METTRE À JOUR LE MENU ACTIF AU SCROLL
             function updateActiveNav() {
                 let current = '';
-                const scrollPosition = window.scrollY + 20; // Ajusté à 20px
+                const scrollPosition = window.scrollY + (window.innerHeight / 3); // Ajusté pour un meilleur détection
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
