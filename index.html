@@ -190,11 +190,11 @@
             box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
         }
 
-        /* Style pour le nouveau bouton de fichier dans download-info */
+        /* Style pour le bouton avec compatibilité intégrée */
         .download-info .cta-button.download-button {
             background: #28a745;
             color: white;
-            padding: 18px 30px;
+            padding: 20px 30px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -207,12 +207,23 @@
             margin: 0 auto 30px;
             max-width: 500px;
             text-align: center;
+            line-height: 1.5;
         }
 
         .download-info .cta-button.download-button:hover {
             background: #4285f4;
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        }
+
+        /* Style pour le texte de compatibilité à l'intérieur du bouton */
+        .download-info .cta-button.download-button span {
+            color: #000;
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 5px;
+            display: inline-block;
+            line-height: 1.4;
         }
 
         /* STYLE UNIFORME POUR TOUS LES TITRES */
@@ -373,7 +384,7 @@
         .download-content {
             background: #1a1a1a;
             color: white;
-            padding: 40px 30px 50px 30px; /* Padding ajusté */
+            padding: 40px 30px 50px 30px;
             border-radius: 12px;
             text-align: center;
             margin: 60px 0;
@@ -442,10 +453,10 @@
         /* CONTACT SECTION - MODIFIÉE */
         .contact-content {
             background: #fafafa;
-            padding: 50px 40px 60px 40px; /* Padding ajusté */
+            padding: 50px 40px 60px 40px;
             border-radius: 12px;
             text-align: center;
-            margin: 60px 0; /* Réduit de 80px à 60px */
+            margin: 60px 0;
             border: 1px solid #e5e5e5;
             max-height: 85vh;
             overflow-y: auto;
@@ -471,7 +482,7 @@
         }
 
         .contact-item {
-            margin: 20px 0; /* Réduit de 25px à 20px */
+            margin: 20px 0;
             font-size: 18px;
             color: #666;
         }
@@ -586,9 +597,13 @@
             }
             
             .download-info .cta-button.download-button {
-                padding: 15px 20px;
-                font-size: 14px;
+                padding: 18px 20px;
+                font-size: 15px;
                 max-width: 90%;
+            }
+            
+            .download-info .cta-button.download-button span {
+                font-size: 13px;
             }
             
             .section-offset {
@@ -617,8 +632,12 @@
             }
             
             .download-info .cta-button.download-button {
-                font-size: 13px;
-                padding: 12px 15px;
+                font-size: 14px;
+                padding: 15px 15px;
+            }
+            
+            .download-info .cta-button.download-button span {
+                font-size: 12px;
             }
             
             .pricing-badges {
@@ -1029,13 +1048,16 @@
                 </p>
                 
                 <div class="download-info">
+                    <!-- BOUTON AVEC COMPATIBILITÉ INTÉGRÉE -->
                     <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
                        class="cta-button download-button" 
                        download="Emulator6809_V1.5.msi">
                        Download File: Emulator6809_V1.5.msi (3 MB)
+                       <br>
+                       <span style="color: #000; font-size: 14px; font-weight: normal; margin-top: 5px; display: inline-block;">
+                           Compatibility: Windows 10/11 (64-bit)
+                       </span>
                     </a>
-                    
-                    <p><strong>Compatibility:</strong> Windows 10/11 (64-bit)</p>
                     
                     <p style="margin-top: 20px; margin-bottom: 10px; font-size: 16px; color: #ccc;">
                         <strong>Contact us to upgrade your license or for more information</strong>
@@ -1051,18 +1073,15 @@
 
         <!-- SECTION CONTACT (MODIFIÉE) -->
         <div class="section section-offset" id="contact">
-            <!-- 1. Titre intégré dans la section Contact -->
             <div class="contact-content">
                 <h2>Contact & Support</h2>
                 
                 <div class="contact-icon">💬</div>
                 <div class="contact-info">
-                    <!-- 2. Texte modifié pour Support -->
                     <p class="contact-item">
                         <strong>Support:</strong> Sales | Technical Support | Custom Development
                     </p>
                     
-                    <!-- 3. Site web mis en dernière place -->
                     <p class="contact-item">
                         <strong>Email:</strong> Emulateur6809@gmail.com
                     </p>
@@ -1204,7 +1223,7 @@
             // 6. METTRE À JOUR LE MENU ACTIF AU SCROLL
             function updateActiveNav() {
                 let current = '';
-                const scrollPosition = window.scrollY + (window.innerHeight / 3); // Ajusté pour un meilleur détection
+                const scrollPosition = window.scrollY + (window.innerHeight / 3);
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
