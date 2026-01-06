@@ -82,7 +82,7 @@ For symbolic-price licenses (Education, Standard or Pro) or technical support, c
 ## 📞 Contact
 
 - **Email**: Emulateur6809@gmail.com
-- **GitHub**: [https://github.com/Emulator6809/Emulator6809](https://github.com/Emulator6809/Emulator6809)
+- **GitHub**: [https://emulator6809.github.io/Emulator6809/]( https://emulator6809.github.io/Emulator6809/)
 - **Support**: Technical assistance and custom development available
 
 ---
