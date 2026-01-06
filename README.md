@@ -23,9 +23,10 @@ Visit our official website: [https://emulator6809.github.io/Emulator6809/](https
 
 ## 📦 Versions
 
-- **Free Version**: Fully functional for educational purposes
-- **Standard License**: €2 (symbolic price to promote development)
-- **Pro License**: €5 (symbolic price to promote development, includes additional features)
+- **Free Trial License**: Free for study and exploration
+- **Education License**: €2 (symbolic price to support the development of educational software)
+- **Standard License**: €3 (symbolic price to support the development of educational software, includes additional features)
+- **Pro License**: €5 (symbolic price to support the development of educational software, includes additional features)
 
 ---
 
@@ -74,13 +75,13 @@ Visit our official website: [https://emulator6809.github.io/Emulator6809/](https
 - File: Emulator6809_V1.5.msi (3 MB)
 - Compatibility: Windows 10/11 (64-bit)
 
-For symbolic-price licenses (Standard or Pro) or technical support, contact: **contact@emu6809.com**
+For symbolic-price licenses (Standard or Pro) or technical support, contact: **Emulateur6809@gmail.com**
 
 ---
 
 ## 📞 Contact
 
-- **Email**: contact@emu6809.com
+- **Email**: Emulateur6809@gmail.com
 - **GitHub**: [https://github.com/Emulator6809/Emulator6809](https://github.com/Emulator6809/Emulator6809)
 - **Support**: Technical assistance and custom development available
 
