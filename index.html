@@ -169,12 +169,50 @@
             box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
         }
 
-        .download-button {
-            background: #28a745;
+        /* STYLE SPÉCIFIQUE POUR LES BOUTONS DOWNLOAD */
+        .hero .cta-button {
+            background: #28a745; /* Vert */
         }
 
-        .download-button:hover {
+        .hero .cta-button:hover {
+            background: #4285f4; /* Bleu au survol */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        }
+
+        .download-content .cta-button.download-button {
+            background: #28a745; /* Vert */
+        }
+
+        .download-content .cta-button.download-button:hover {
+            background: #4285f4; /* Bleu au survol */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        }
+
+        /* Style pour le nouveau bouton de fichier dans download-info */
+        .download-info .cta-button.download-button {
+            background: #28a745;
+            color: white;
+            padding: 18px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 30px;
+            display: block;
+            margin: 0 auto 30px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .download-info .cta-button.download-button:hover {
             background: #4285f4;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
         }
 
         /* STYLE UNIFORME POUR TOUS LES TITRES */
@@ -339,11 +377,6 @@
             border-radius: 12px;
             text-align: center;
             margin: 80px 0;
-        }
-
-        .download-icon {
-            font-size: 60px;
-            margin: 30px 0;
         }
 
         .download-info {
@@ -523,6 +556,12 @@
                 margin: 40px 0;
             }
             
+            .download-info .cta-button.download-button {
+                padding: 15px 20px;
+                font-size: 14px;
+                max-width: 90%;
+            }
+            
             .section-offset {
                 scroll-margin-top: 15px;
             }
@@ -540,6 +579,20 @@
             
             .nav-links a.active::before {
                 bottom: -8px;
+            }
+            
+            .download-info .cta-button.download-button {
+                font-size: 13px;
+                padding: 12px 15px;
+            }
+            
+            .pricing-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .badge {
+                width: 200px;
             }
         }
 
@@ -584,14 +637,14 @@
 
     <!-- CONTENU PRINCIPAL -->
     <main>
-        <!-- HERO SECTION (AJOUTÉ UN ID) -->
+        <!-- HERO SECTION -->
         <div class="hero section-offset" id="hero">
             <h1>Emulator 6809</h1>
             <p class="subtitle">Computer System Simulator based on the Motorola MC6809 Microprocessor</p>
             <p class="description">
                 It includes ROM, RAM, basic I/O, and an integrated assembler, designed for education, low-level software development, and experimentation with microprocessor-based systems.
             </p>
-            <a href="#download" class="cta-button">Download for free</a>
+            <a href="#download" class="cta-button download-button">Download for free</a>
         </div>
 
         <!-- SECTION ABOUT -->
@@ -918,7 +971,7 @@
             </div>
         </div>
 
-        <!-- SECTION DOWNLOAD -->
+        <!-- SECTION DOWNLOAD (MODIFIÉE) -->
         <div class="section section-offset" id="download">
             <h2 class="section-title">Download</h2>
             
@@ -930,16 +983,14 @@
                     Contact us for more information.
                 </p>
                 
-                <div class="download-icon">⬇️</div>
-                
-                <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
-                   class="cta-button download-button" 
-                   download="Emulator6809_V1.5.msi">
-                   Download Emulator 6809 V1.5 (Free Trial)
-                </a>
-                
                 <div class="download-info">
-                    <p><strong>File:</strong> Emulator6809_V1.5.msi (3 MB)</p>
+                    <!-- NOUVEAU BOUTON DE TÉLÉCHARGEMENT -->
+                    <a href="https://github.com/Emulator6809/Emulator6809/raw/refs/heads/main/download/Emulator6809_V1.5.msi" 
+                       class="cta-button download-button" 
+                       download="Emulator6809_V1.5.msi">
+                       Download File: Emulator6809_V1.5.msi (3 MB)
+                    </a>
+                    
                     <p><strong>Compatibility:</strong> Windows 10/11 (64-bit)</p>
                     <p style="margin-top: 30px; margin-bottom: 15px;"><strong>Upgrade Your License:</strong></p>
                     <div class="pricing-badges">
@@ -950,7 +1001,7 @@
             </div>
         </div>
 
-        <!-- SECTION CONTACT AVEC MODIFICATIONS -->
+        <!-- SECTION CONTACT -->
         <div class="section section-offset" id="contact">
             <h2 class="section-title">Contact & Support</h2>
             
