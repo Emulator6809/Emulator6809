@@ -75,7 +75,7 @@ Visit our official website: [https://emulator6809.github.io/Emulator6809/](https
 - File: Emulator6809_V1.5.msi (3 MB)
 - Compatibility: Windows 10/11 (64-bit)
 
-For symbolic-price licenses (Standard or Pro) or technical support, contact: **Emulateur6809@gmail.com**
+For symbolic-price licenses (Education, Standard or Pro) or technical support, contact: **Emulateur6809@gmail.com**
 
 ---
 
